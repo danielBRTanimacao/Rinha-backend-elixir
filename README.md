@@ -1,6 +1,6 @@
 # RinhaBackend
 
-Link do projeto:
+Link do projeto: https://github.com/zanfranceschi/rinha-de-backend-2025
 
 ## Sobre o elixir
 
