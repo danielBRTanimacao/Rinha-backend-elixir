@@ -5,8 +5,9 @@ defmodule RinhaBackendWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", RinhaBackendWeb do
+  scope "/", RinhaBackendWeb do
     pipe_through :api
+
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
