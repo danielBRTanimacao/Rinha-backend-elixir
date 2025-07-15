@@ -27,23 +27,24 @@ defmodule RinhaBackend.Payments.PaymentProcessor do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         health_data = Jason.decode!(body)
         Map.put(state, processor, %{
-          falling: health_data["failing"],
+          failing: health_data["failing"],
           min_response_time: health_data["minResponseTime"]
-        }) ->
-          state
+        })
+      _ ->
+        state
     end
   end
 
   defp schedule_health_check do
-    Process.send(self(), :health_check, 5000)
+    Process.send_after(self(), :health_check, 5000)
   end
 
   def get_health(processor) do
-    GenServer.call(__MODULE__, {:get_healthprocessord})
+    GenServer.call(__MODULE__, {:get_health, processor})
   end
 
-  def handle_call({:get_he, processor}, _from, state) do
-    {:reply, Map.get(state, processor, %{failing: :ok, min_response_time: 1000}), state}
+  def handle_call({:get_health, processor}, _from, state) do
+    {:reply, Map.get(state, processor, %{failing: true, min_response_time: 1000}), state}
   end
 
 end
