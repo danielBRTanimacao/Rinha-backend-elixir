@@ -8,7 +8,6 @@ defmodule RinhaBackend.Payments.Payments do
   @fallback_url "http://payment-processor-fallback:8080/payments"
 
   def process_payment(attrs) do
-    # Modulo completo que proceca os pagamentos
     processor = select_processor()
     case call_processor(processor, attrs) do
       {:ok, response} ->

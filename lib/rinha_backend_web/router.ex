@@ -1,4 +1,5 @@
 defmodule RinhaBackendWeb.Router do
+
   use RinhaBackendWeb, :router
 
   pipeline :api do
@@ -7,7 +8,8 @@ defmodule RinhaBackendWeb.Router do
 
   scope "/", RinhaBackendWeb do
     pipe_through :api
-
+    post "/payments", PaymentController, :create_payment
+    get "/payments-summary", PaymentController, :get_summary
   end
 
   if Application.compile_env(:rinha_backend, :dev_routes) do
