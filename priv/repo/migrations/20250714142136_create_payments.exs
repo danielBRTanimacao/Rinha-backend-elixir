@@ -9,7 +9,7 @@ defmodule RinhaBackend.Repo.Migrations.CreatePayments do
       add :processor, :string, null: false
       add :requested_at, :utc_datetime_usec, null: false
 
-      timestamps()
+      timestamps(type: :utc_datetime_usec)
     end
     create unique_index(:payments, [:correlation_id])
   end

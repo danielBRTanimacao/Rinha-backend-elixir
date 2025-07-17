@@ -2,7 +2,7 @@ defmodule RinhaBackend.Payments.Payments do
   import Ecto.Query, warn: false
   alias RinhaBackend.Repo
   alias RinhaBackend.Payments.Payment
-  alias RinhaBackend.Payments.PaymentProcessor
+  alias RinhaBackend.Payments.HealthService
 
   @default_url "http://payment-processor-default:8080/payments"
   @fallback_url "http://payment-processor-fallback:8080/payments"
@@ -19,8 +19,10 @@ defmodule RinhaBackend.Payments.Payments do
   end
 
   defp select_processor do
-    default_health = PaymentProcessor.get_health(:default)
-    fallback_health = PaymentProcessor.get_health(:fallback)
+  alias RinhaBackend.Payments.HealthService
+    default_health = HealthService.get_health(:default)
+  alias RinhaBackend.Payments.HealthService
+    fallback_health = HealthService.get_health(:fallback)
     cond do
       not default_health.failing -> :default
       not fallback_health.failing -> :fallback

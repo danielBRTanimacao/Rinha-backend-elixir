@@ -11,7 +11,7 @@ defmodule RinhaBackend.Payments.Payment do
     field :processor, :string
     field :requested_at, :utc_datetime_usec
 
-    timestamps()
+    timestamps(type: :utc_datetime_usec)
   end
 
   def changeset(payment, attrs) do

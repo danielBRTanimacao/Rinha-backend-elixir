@@ -1,0 +1,28 @@
+Erlang/OTP 26 [erts-14.2.5.10] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit:ns]
+
+Interactive Elixir (1.17.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> ** (SyntaxError) invalid syntax found on iex:1:4:
+    error: syntax error before: mix
+    │
+  1 │ -S mix  phx.server
+    │    ^
+    │
+    └─ iex:1:4
+    (iex 1.17.3) lib/iex/evaluator.ex:295: IEx.Evaluator.parse_eval_inspect/4
+    (iex 1.17.3) lib/iex/evaluator.ex:187: IEx.Evaluator.loop/1
+    (iex 1.17.3) lib/iex/evaluator.ex:32: IEx.Evaluator.init/5
+    (stdlib 5.2.3.4) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+iex(1)> ** (SyntaxError) invalid syntax found on iex:1:8:
+    error: syntax error before: phx
+    │
+  1 │ iex -S phx.server
+    │        ^
+    │
+    └─ iex:1:8
+    (iex 1.17.3) lib/iex/evaluator.ex:295: IEx.Evaluator.parse_eval_inspect/4
+    (iex 1.17.3) lib/iex/evaluator.ex:187: IEx.Evaluator.loop/1
+    (iex 1.17.3) lib/iex/evaluator.ex:32: IEx.Evaluator.init/5
+    (stdlib 5.2.3.4) proc_lib.erl:241: :proc_lib.init_p_do_apply/3
+iex(1)> 
+BREAK: (a)bort (A)bort with dump (c)ontinue (p)roc info (i)nfo
+       (l)oaded (v)ersion (k)ill (D)b-tables (d)istribution

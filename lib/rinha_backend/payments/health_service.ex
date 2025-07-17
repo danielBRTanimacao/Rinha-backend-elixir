@@ -1,4 +1,4 @@
-defmodule RinhaBackend.Payments.PaymentProcessor do
+defmodule RinhaBackend.Payments.HealthService do
   use GenServer
 
   @default_url "http://payment-processor-default:8080/payments/service-health"

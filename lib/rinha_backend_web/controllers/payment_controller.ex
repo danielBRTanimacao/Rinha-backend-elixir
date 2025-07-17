@@ -10,8 +10,8 @@ defmodule RinhaBackendWeb.PaymentController do
   end
 
   def get_summary(conn, %{"from" => from, "to"=> to}) do
-    with {:ok, from_dt} <- DateTime.from_iso8601(from),
-    {:ok, to_dt} <- DateTime.from_iso8601(to) do
+    with {:ok, from_dt, _} <- DateTime.from_iso8601(from),
+    {:ok, to_dt, _} <- DateTime.from_iso8601(to) do
       summary = Payments.summary(from_dt, to_dt)
       json(conn, summary)
     else
@@ -19,8 +19,8 @@ defmodule RinhaBackendWeb.PaymentController do
     end
   end
 
-  def get_summary(conn) do
-    summary = Payments.summary(DateTime.from_unix(0), DateTime.utc_now())
+  def get_summary(conn, _params) do
+    summary = Payments.summary(DateTime.from_unix!(0), DateTime.utc_now())
     json(conn, summary)
   end
 
