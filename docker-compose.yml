@@ -8,11 +8,14 @@ services:
         ports:
             - "5432:5432"
     backend-1:
-        image: danielbatata1/img-rinha-elixir:0.0.1
+        image: danielbatata/img-rinha-elixir:0.0.2
         depends_on:
             - db
         environment:
-            - SECRET_KEY_BASE="bababui"
+            - SECRET_KEY_BASE=bababui
             - DATABASE_URL=ecto://postgres:password@db/payments_db
+            - PHX_SERVER=true
+            - PHX_HOST=localhost
+            - PORT=4000
         ports:
             - "4000:4000"
